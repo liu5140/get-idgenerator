@@ -2,10 +2,16 @@
 
 这些代码是go语言生成全局id的一种方式，每次使用都会自动加载数据，需要使用直接从内存中获取即可，性能高效
 
+
+具体用途：
+1、生成全局主键
+2、生成唯一订单号
+3、可用于生成推荐码之类
+
+
 如何使用：
 
 需要在数据库中简历一张表id_space
-
 
 CREATE TABLE `id_space` (
   `space_name` varchar(45) NOT NULL DEFAULT '',
@@ -35,8 +41,4 @@ code := gen.ChaosID(id, gen.Suffix("order"))//获取一串 如：OPRMWL8SP
 id := gen.RestoreID(code, gen.Suffix("order")) //通过code 也能转换出上面对应的id 
 
 
-具体用途：
-1、生成全局主键
-2、生成唯一订单号
-3、可用于生成推荐码之类
 
